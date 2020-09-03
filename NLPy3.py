@@ -29,7 +29,7 @@ tabbing = 0
 
 # Record audio setup
 fs = 44100
-seconds = 5
+seconds = 4
 
 
 # Record audio to output.wav
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     window.configure(background='black')
     window.minsize(1000, 500)
 
-    output_text = tk.Label(window, background='black', fg='green', height=5, width=100, justify=tk.LEFT, font=("fixedsys", 15))
+    output_text = tk.Label(window, background='black', fg='green', height=20, width=100, justify=tk.LEFT, font=("fixedsys", 15))
     output_text.pack(pady=40)
 
     instr = tk.Text(window, height=2, width=100, background='black', fg='green', font=("fixedsys", 13))
