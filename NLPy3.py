@@ -186,6 +186,7 @@ if __name__ == "__main__":
     output_text.pack(pady=40)
 
     instr = tk.Text(window, height=2, width=100, background='black', fg='green', font=("fixedsys", 13))
+    instr.insert(tk.END, "Enter queries here")
     instr.pack(pady=20)
 
     label = tk.Label(fg='red', background='black', width=100, height=2)
@@ -219,13 +220,13 @@ if __name__ == "__main__":
     button_layout = tk.Frame(window, bg='black')
     button_layout.pack(side=tk.TOP)
 
-    instrButton = tk.Button(text="Submit Command", command=submit)
+    instrButton = tk.Button(text="Submit Command", command=submit, bg='black', borderwidth=5, fg='green')
     instrButton.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
-    record_button = tk.Button(text="Record", command=clicked_record)
+    record_button = tk.Button(text="Record", command=clicked_record, bg='black', borderwidth=5, fg='green')
     record_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
-    quit_button = tk.Button(text="Save + Quit", command=stop_nlpy)
+    quit_button = tk.Button(text="Save + Quit", command=stop_nlpy, bg='black', borderwidth=5, fg='green')
     quit_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
     label.pack(pady=20)
