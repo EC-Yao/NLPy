@@ -166,6 +166,9 @@ def parse_response(resp):
         if "id:rval" in resp["entities"]:
             value = output("print(" + parse_id(resp["entities"]["id:rval"][0]["body"]) + ")")
             return value
+        elif "integer:integer" in resp["entities"]:
+            value = output("print(" + parse_id(resp["entities"]["integer:integer"][0]["body"]) + ")")
+            return value
     elif intent['name'] == 'mod':
         if len(resp["entities"]["id:param"]) == 2:
             value = output(parse_id(resp["entities"]["id:param"][0]["body"]) + " % "
@@ -196,9 +199,8 @@ if __name__ == "__main__":
             str_value = message_text(instr.get("1.0", tk.END))
             instr.delete('1.0', tk.END)
             script.write(str_value + "\n")
-            label['text'] = str_value
+            label['text'] = ''
             output_text['text'] += str_value + "\n"
-            print(str_value)
         except:
             label['text'] = "Error reading input"
 
@@ -207,14 +209,18 @@ if __name__ == "__main__":
         try:
             str_value = message_voice("output.wav")
             script.write(str_value + "\n")
-            label['text'] = str_value
+            label['text'] = ''
             output_text['text'] += str_value + "\n"
-            print(str_value)
         except:
             label['text'] = "Error reading input"
 
     def stop_nlpy():
         script.close()
+        exit()
+
+    def run_nlpy():
+        script.close()
+        os.system("python NLPy_output.py")
         exit()
 
     button_layout = tk.Frame(window, bg='black')
@@ -228,6 +234,9 @@ if __name__ == "__main__":
 
     quit_button = tk.Button(text="Save + Quit", command=stop_nlpy, bg='black', borderwidth=5, fg='green')
     quit_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
+
+    run_button = tk.Button(text="Save + Run + Quit", command=run_nlpy, bg='black', borderwidth=5, fg='green')
+    run_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
     label.pack(pady=20)
 
