@@ -216,14 +216,17 @@ if __name__ == "__main__":
         script.close()
         exit()
 
+    button_layout = tk.Frame(window, bg='black')
+    button_layout.pack(side=tk.TOP)
+
     instrButton = tk.Button(text="Submit Command", command=submit)
-    instrButton.pack(pady=20)
+    instrButton.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
     record_button = tk.Button(text="Record", command=clicked_record)
-    record_button.pack(pady=20)
+    record_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
     quit_button = tk.Button(text="Save + Quit", command=stop_nlpy)
-    quit_button.pack(pady=20)
+    quit_button.pack(in_=button_layout, side=tk.LEFT, padx=15)
 
     label.pack(pady=20)
 
